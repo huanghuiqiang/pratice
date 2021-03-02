@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #div1 {width:350px;height:300px;padding:10px;border:1px solid #aaaaaa;}
+      </style>
+    <script>
+      function drag(evt) {
+        evt.dataTransfer.setData("Text", evt.target.id);
+      }
+      function allowDrop(evt) {
+        event.preventDefault()
+      }
+      function deop(evt) {
+        // evt.preventDefault();
+        var data = evt.dataTransfer.getData("Text");
+        evt.target.appendChild(document.getElementById(data))
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1" ondrop="deop(event)" ondragover="allowDrop(event)"></div>
+    <img id="imgId" src="./微信图片_20210113131927.jpg" draggable="true" ondragstart="drag(event)" width="200" height="200">
+  </body>
+</html>
